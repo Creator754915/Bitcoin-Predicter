@@ -29,3 +29,7 @@ model_prophet.add_seasonality(name="annual", period=365, fourier_order=8)
 ## Model Changepoints
 
 ![no image](https://github.com/Creator754915/Bitcoin-Predicter/blob/main/figure_with_changepoints.png)
+
+## Taux d'échecs
+
+![no image](https://github.com/Creator754915/Bitcoin-Predicter/blob/main/taux_derreurs_ia.png)
