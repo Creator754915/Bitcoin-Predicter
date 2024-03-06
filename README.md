@@ -3,6 +3,18 @@
 ## Prophet Settings
 
 <br>
+Télécharger les données depuis internet
+
+```py
+df = yf.download(
+    "BTC-USD",
+    start="2019-01-01",
+    end="2024-03-06",
+    interval="1d"
+)
+```
+
+<br>
 Hyperparameter modifié de Prophet
 
 ```py
