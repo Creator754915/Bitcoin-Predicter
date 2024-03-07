@@ -21,7 +21,7 @@ Hyperparameter modifié de Prophet
 # Initialisation du modèle avec hyperparamètres ajustés
 model_prophet = Prophet(
     changepoint_range=0.95,  # Plage de changement ajustée
-    changepoint_prior_scale=0.15,
+    changepoint_prior_scale=0.15, # Ajouter de nouveaux points de changement
     seasonality_prior_scale=1.5,  # Échelle de saisonnalité ajustée
 )
 ```
