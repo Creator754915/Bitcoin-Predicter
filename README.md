@@ -1,5 +1,7 @@
 # Bitcoin-Predicter
 
+<br>
+
 ## Prophet Settings
 
 <br>
@@ -33,6 +35,8 @@ Option des paramètres saisonier
 model_prophet.add_country_holidays(country_name='US')
 model_prophet.add_seasonality(name="annual", period=365, fourier_order=8)
 ```
+
+<br>
 
 ## Model Prediction Text
 
@@ -70,6 +74,34 @@ yhat_upper => Upper Price Prediction
 
 ![no image](https://github.com/Creator754915/Bitcoin-Predicter/blob/main/figure_with_changepoints.png)
 
-## Taux d'échecs
+## Model Fail Rate
 
 ![no image](https://github.com/Creator754915/Bitcoin-Predicter/blob/main/taux_derreurs_ia.png)
+
+<br>
+
+# Bitcoin Predicter Beta V2
+
+## Model Prediciton
+
+![no image](https://github.com/Creator754915/Bitcoin-Predicter/blob/main/Test%20Beta%20V2/bitcoin_prediction_beta_v2.png)
+
+## Model Changepoints
+
+![no image](https://github.com/Creator754915/Bitcoin-Predicter/blob/main/Test%20Beta%20V2/changepoints_beta_v2.png)
+
+## Model Fail Rate
+
+![no image](https://github.com/Creator754915/Bitcoin-Predicter/blob/main/Test%20Beta%20V2/taux_derreurs_moyenne_MAE_RMSE_beta_v2.png)
+
+<br>
+
+## PRO ZONE
+
+In statistics, mean absolute error (MAE) is a measure of errors between paired observations expressing the same phenomenon. Examples of Y versus X include comparisons of predicted versus observed, subsequent time versus initial time, and one technique of measurement versus an alternative technique of measurement. MAE is calculated as the sum of absolute errors divided by the sample size.
+
+![MAE FORMULE](https://wikimedia.org/api/rest_v1/media/math/render/svg/3ef87b78a9af65e308cf4aa9acf6f203efbdeded)
+
+The root mean square error (RMSE) or root mean square deviation (RMSE) is a frequently used measure of the differences between the values ​​(sample or population values) predicted by a model or estimator and the observed values ​​(or true values). The REQM represents the square root of the second sampling time of the differences between the predicted values ​​and the observed values. These deviations are called residuals when the calculations are performed on the data sample that was used for the estimation or they are called errors (or prediction errors) when they are calculated on data outside the sample. estimate. REQM aggregates prediction errors from different data points into a single measure of increased predictive power. REQM is a measure of accuracy, which is used to compare the errors of different predictive models for a particular dataset and not between different datasets, as it is scale dependent1.
+
+![RMSE FORMULE](https://wikimedia.org/api/rest_v1/media/math/render/svg/b343f69f0e089cecedace789c161c540265f97ae)
