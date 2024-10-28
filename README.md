@@ -5,7 +5,7 @@
 ## Prophet Settings
 
 <br>
-Télécharger les données depuis internet
+Download the data from internet
 
 ```py
 df = yf.download(
@@ -17,7 +17,7 @@ df = yf.download(
 ```
 
 <br>
-Hyperparameter modifié de Prophet
+Hyperparameter of Prophet modified
 
 ```py
 # Initialisation du modèle avec hyperparamètres ajustés
@@ -29,20 +29,20 @@ model_prophet = Prophet(
 ```
 
 <br>
-Option des paramètres saisonier
+Sesonality settings
 
 ```py
-model_prophet.add_country_holidays(country_name='US')
-model_prophet.add_seasonality(name="annual", period=365, fourier_order=8)
+model_prophet.add_country_holidays(country_name='US')                     # Hollidays of the USA
+model_prophet.add_seasonality(name="annual", period=365, fourier_order=8) # Model of a basic 365 days year
 ```
 
 <br>
 
-## Model Prediction Text
+## Model Prediction Table
 
-```txt
-	    ds	           yhat          yhat_lower	 yhat_upper
-0	2019-01-01	1825.660589	-938.724612	4615.102245
+| Row       | ds         | yhat           | yhat_lower  | yhat_upper  |
+| :-------- | :--------- | :------------- | ------------| ----------- |
+| 0	    | 2019-01-01 | 1825.660589    | -938.724612 | 4615.102245 |
 1	2019-01-02	2452.785371	-173.765656	5269.470747
 2	2019-01-03	2704.465776	-240.673647	5517.625968
 3	2019-01-04	3027.981416	321.280947	5851.345484
@@ -54,14 +54,16 @@ model_prophet.add_seasonality(name="annual", period=365, fourier_order=8)
 1889	2024-08-01	68724.121673	-57338.220283	197346.131072
 1890	2024-08-02	69112.080500	-58477.960423	198117.128924
 1891 rows × 4 columns
-```
-ds => Date
 
-yhat => Price Prediction
+Legend:
 
-yhat_lower => Lower Price Prediction
+ds => **Date**
 
-yhat_upper => Upper Price Prediction
+yhat => **Price Prediction**
+
+yhat_lower => **Lower Price Prediction**
+
+yhat_upper => **Upper Price Prediction**
 
 <br>
 <br>
