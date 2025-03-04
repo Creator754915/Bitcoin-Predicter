@@ -21,7 +21,6 @@ btc_close = df[['Close', 'Volume']]
 btc_close = btc_close.reset_index(drop=False)
 btc_close.columns = ['ds', 'y', 'Volume']
 
-# Séparation des données d'entraînement et de test
 btc_train, btc_test = train_test_split(
     btc_close,
     test_size=0.2,
@@ -42,10 +41,7 @@ model_prophet.add_seasonality(name="annual", period=365, fourier_order=8)       
                                                                                  #
 ##################################################################################
 
-# Ajout de la régresseur supplémentaire (Volume)
 model_prophet.add_regressor('Volume')
-
-# Entraînement du modèle
 model_prophet.fit(btc_train)
 
 # Création du DataFrame Futur
@@ -53,17 +49,15 @@ btc_future = model_prophet.make_future_dataframe(
     periods=len(btc_test),
     freq="B"
 )
-btc_future['Volume'] = btc_close['Volume']  # Étendre le DataFrame futur avec les données de volume
+btc_future['Volume'] = btc_close['Volume']
 
 # Prédictions
 btc_pred = model_prophet.predict(btc_future)
 
-# Enregistrement des prédictions dans un fichier texte
 with open('bitcoin_prediction.txt', 'w') as file:
     for index, row in btc_pred.iterrows():
         file.write(f"{row['ds']}, {row['yhat']}, {row['yhat_lower']}, {row['yhat_upper']}\n")
 
-# Affichage des prédictions
 plt.figure(figsize=(10, 6))
 plt.plot(btc_pred['ds'], btc_pred['yhat'], label='Prédiction', color='blue')
 plt.fill_between(btc_pred['ds'], btc_pred['yhat_lower'], btc_pred['yhat_upper'], color='skyblue', alpha=0.4)
@@ -92,7 +86,6 @@ mae = errors.abs().mean()
 # Calculer l'erreur quadratique moyenne (RMSE)
 rmse = (errors ** 2).mean() ** 0.5
 
-# Créer un graphique
 plt.figure(figsize=(10, 6))
 plt.plot(btc_test['ds'], errors, label='Erreurs', color='red')
 plt.axhline(y=0, color='black', linestyle='--')
@@ -109,5 +102,4 @@ plt.grid(True)
 plt.tight_layout()
 plt.show()
 
-# Sauvegarde du modèle
 joblib.dump(model_prophet, 'btc_predic_model.pkl')
