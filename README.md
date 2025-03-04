@@ -20,7 +20,7 @@ df = yf.download(
 Hyperparameter of Prophet modified
 
 ```py
-# Initialisation du modèle avec hyperparamètres ajustés
+# Initialisation du modèle avec les hyperparamètres ajustés
 model_prophet = Prophet(
     changepoint_range=0.95,  # Plage de changement ajustée
     changepoint_prior_scale=0.15, # Ajouter de nouveaux points de changement
@@ -32,8 +32,8 @@ model_prophet = Prophet(
 Sesonality settings
 
 ```py
-model_prophet.add_country_holidays(country_name='US')                     # Hollidays of the USA
-model_prophet.add_seasonality(name="annual", period=365, fourier_order=8) # Model of a basic 365 days year
+model_prophet.add_country_holidays(country_name='US')                     # Vacances au USA
+model_prophet.add_seasonality(name="annual", period=365, fourier_order=8) # Basé sur un an de 365 j
 ```
 
 <br>
@@ -102,7 +102,7 @@ We can see the model predit with lots of *accuracy* the **price** of Bitcoin whe
 
 <br>
 
-## PRO ZONE
+# PRO ZONE
 
 In statistics, mean absolute error (MAE) is a measure of errors between paired observations expressing the same phenomenon. Examples of Y versus X include comparisons of predicted versus observed, subsequent time versus initial time, and one technique of measurement versus an alternative technique of measurement. MAE is calculated as the sum of absolute errors divided by the sample size.
 
