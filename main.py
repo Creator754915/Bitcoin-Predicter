@@ -30,17 +30,15 @@ btc_train, btc_test = train_test_split(
 
 # Initialisation du modèle avec hyperparamètres ajustés
 model_prophet = Prophet(
-    changepoint_range=0.95,  # Plage de changement ajustée
+    changepoint_range=0.95, 
     changepoint_prior_scale=0.15,
-    seasonality_prior_scale=1.5,  # Échelle de saisonnalité ajustée
+    seasonality_prior_scale=1.5, 
 )
 model_prophet.add_country_holidays(country_name='US')
 model_prophet.add_seasonality(name="annual", period=365, fourier_order=8)
 
-# Ajout de la régresseur supplémentaire (Volume)
 model_prophet.add_regressor('Volume')
 
-# Entraînement du modèle
 model_prophet.fit(btc_train)
 
 # Création du DataFrame Futur
@@ -48,7 +46,7 @@ btc_future = model_prophet.make_future_dataframe(
     periods=len(btc_test),
     freq="B"
 )
-btc_future['Volume'] = btc_close['Volume']  # Étendre le DataFrame futur avec les données de volume
+btc_future['Volume'] = btc_close['Volume'] 
 
 # Prédictions
 btc_pred = model_prophet.predict(btc_future)
@@ -68,7 +66,7 @@ plt.title('Prédiction du Prix du Bitcoin')
 plt.legend()
 plt.grid(True)
 
-# Sauvegarde de la figure en tant qu'image
+# Sauvegarde de la figure en tant qu image
 plt.savefig('bitcoin_prediction_plot.png')
 plt.show()
 
